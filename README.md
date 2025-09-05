@@ -9,7 +9,7 @@ It’s a simple QR Code Generator where you can enter a URL and generate a scann
 - Responsive design
 - Built with React and CSS
 
-- 📦 Installation
+📦 Installation
 To run this project locally:
 ```bash
 # clone the repository
