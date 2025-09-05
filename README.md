@@ -20,7 +20,7 @@ It’s a simple QR Code Generator where you can enter a URL and generate a scann
 To run this project locally:
 ```bash
 # clone the repository
-git clone https://github.com/your-username/your-repo-name.git
+git clone https://github.com/erwincurato/QR-Code-Generator.git
 
 # go into the folder
 cd your-repo-name
