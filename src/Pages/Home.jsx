@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QrFrame from "../Components/QrFrame";
-import "../styles/Home.css";
+import "../Styles/Home.css";
 import "../Styles/QrFrame.css";
 
 //My QR Code Generator page
