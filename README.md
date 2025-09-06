@@ -23,7 +23,7 @@ To run this project locally:
 git clone https://github.com/erwincurato/QR-Code-Generator.git
 
 # go into the folder
-cd your-repo-name
+cd QR-Code-Generator
 
 # install dependencies
 npm install
