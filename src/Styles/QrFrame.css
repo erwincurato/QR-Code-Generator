@@ -12,13 +12,20 @@
   justify-content: center;   /* Center content vertically */
 }
 
-.frame-placeholder{
+.frame-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
 }
+
+.frame-placeholder p {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .qr-frame-content {
   display: flex;
   flex-direction: row;
@@ -73,13 +80,17 @@
     box-sizing: border-box;
   }
   
-  .frame-placeholder{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
+  .frame-placeholder {
+    min-height: 120px;
+    height: 100%;
+  }
+  
+  .frame-placeholder p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
   .qr-frame-content {
     flex-direction: column;
     align-items: stretch;
