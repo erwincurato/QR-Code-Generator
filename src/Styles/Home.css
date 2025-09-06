@@ -78,6 +78,8 @@ button:hover {
 
 .error {
   color: #e74c3c;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 550;
   font-size: 14px;
   margin-top: 8px;
 }
