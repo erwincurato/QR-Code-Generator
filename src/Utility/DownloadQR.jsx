@@ -1,4 +1,4 @@
-export function DownloadQr(svgRef, fileName = "EC_QR", size = 210) {
+export function DownloadQr(svgRef, fileName = "EC_QR", size = 210, padding = 20) {
   if (!svgRef.current) return;
 
   const svg = svgRef.current;
@@ -6,16 +6,21 @@ export function DownloadQr(svgRef, fileName = "EC_QR", size = 210) {
   const source = serializer.serializeToString(svg);
 
   const canvas = document.createElement("canvas");
-  canvas.width = size;
-  canvas.height = size;
+  canvas.width = size + padding * 2;   // Add padding space
+  canvas.height = size + padding * 2;
   const ctx = canvas.getContext("2d");
+
+  // Fill background with white
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   const img = new window.Image();
   const svgBlob = new Blob([source], { type: "image/svg+xml;charset=utf-8" });
   const urlBlob = URL.createObjectURL(svgBlob);
 
   img.onload = () => {
-    ctx.drawImage(img, 0, 0, size, size);
+    // Draw QR with padding
+    ctx.drawImage(img, padding, padding, size, size);
     URL.revokeObjectURL(urlBlob);
 
     canvas.toBlob((blob) => {
