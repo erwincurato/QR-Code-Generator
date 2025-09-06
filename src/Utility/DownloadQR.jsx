@@ -18,10 +18,20 @@ export function DownloadQr(svgRef, fileName = "EC_QR", size = 210) {
     ctx.drawImage(img, 0, 0, size, size);
     URL.revokeObjectURL(urlBlob);
 
-    const link = document.createElement("a");
-    link.href = canvas.toDataURL("image/png");
-    link.download = `${fileName || "EC_QR"}.png`;
-    link.click();
+    canvas.toBlob((blob) => {
+      const blobUrl = URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+      link.href = blobUrl;
+      link.download = `${fileName || "EC_QR"}.png`;
+
+      // Append to body for iOS Safari
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      URL.revokeObjectURL(blobUrl);
+    }, "image/png");
   };
 
   img.src = urlBlob;
