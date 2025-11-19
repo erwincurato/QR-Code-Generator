@@ -81,17 +81,95 @@ export const downloadQRCode = (svgElement, fileName = APP_CONFIG.defaultFileName
 };
 
 /**
- * Validates if a string is a valid URL
+ * Validates if a string is a valid URL with comprehensive checks
  * @param {string} string - The string to validate
  * @returns {boolean} - True if valid URL, false otherwise
  */
 export const isValidUrl = (string) => {
+  if (!string || typeof string !== 'string') {
+    return false;
+  }
+
+  // Check if string is too short to be a valid URL
+  if (string.length < 4) {
+    return false;
+  }
+
+  // Check for forbidden patterns that are clearly invalid
+  if (string.includes(' ')) {
+    // Allow spaces only if it's a data URL or similar special case
+    if (!string.startsWith('data:')) {
+      return false;
+    }
+  }
+
   try {
-    new URL(string);
+    // Check for common URL schemes
+    let fullUrl = string;
+
+    // If no protocol is provided, try adding 'https://' and test
+    if (!string.includes('://')) {
+      // Make sure it looks like a valid domain before adding protocol
+      if (string.startsWith('www.')) {
+        fullUrl = `https://${string}`;
+      } else if (isValidDomain(string)) {
+        fullUrl = `https://${string}`;
+      } else {
+        // If it doesn't look like a valid domain, it's likely invalid
+        return false;
+      }
+    }
+
+    new URL(fullUrl);
     return true;
   } catch (_) {
     return false;
   }
+};
+
+/**
+ * Validates if a string looks like a valid domain
+ * @param {string} domain - The domain string to validate
+ * @returns {boolean} - True if valid domain structure, false otherwise
+ */
+export const isValidDomain = (domain) => {
+  if (!domain || typeof domain !== 'string') {
+    return false;
+  }
+
+  // Basic domain validation using regex
+  // This checks for valid domain structure
+  const domainRegex = /^(?!:\/\/)([a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}$/;
+
+  // Additional check: ensure it has at least one dot that's not at the beginning or end
+  if (!domain.includes('.') || domain.startsWith('.') || domain.endsWith('.')) {
+    return false;
+  }
+
+  // Check for valid characters and structure
+  return domainRegex.test(domain);
+};
+
+/**
+ * Normalizes a URL to ensure it has the proper protocol
+ * @param {string} string - The URL string to normalize
+ * @returns {string} - The normalized URL
+ */
+export const normalizeUrl = (string) => {
+  if (!string) return '';
+
+  // If the string doesn't have a protocol, add https://
+  if (!string.startsWith('http://') && !string.startsWith('https://')) {
+    // Check if it starts with www or looks like a domain
+    const trimmedString = string.trim();
+
+    if (trimmedString.startsWith('www.')) {
+      return `https://${trimmedString}`;
+    } else if (isValidDomain(trimmedString)) {
+      return `https://${trimmedString}`;
+    }
+  }
+  return string;
 };
 
 /**

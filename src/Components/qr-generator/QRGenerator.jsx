@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QRFrame from "./QRFrame";
-import { isValidUrl } from "../../utils/qr-utils";
+import { isValidUrl, normalizeUrl } from "../../utils/qr-utils";
 import { APP_CONFIG } from "../../constants";
 import styles from "./QRGenerator.module.css";
 import "../../styles/animations.css"; // Import reusable animations
@@ -19,7 +19,8 @@ const QRGenerator = () => {
 
     if (isValidUrl(url)) {
       setError("");
-      setQrUrl(url);
+      // Normalize the URL to ensure proper protocol
+      setQrUrl(normalizeUrl(url));
     } else {
       setError("Please enter a valid URL");
       setQrUrl("");
