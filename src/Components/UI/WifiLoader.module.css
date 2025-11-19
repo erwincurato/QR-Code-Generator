@@ -16,7 +16,7 @@
 .wifiSignal {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   width: var(--wifi-size, 150px);
   height: var(--wifi-size, 150px);
@@ -24,47 +24,75 @@
 
 .wifiIcon {
   position: relative;
-  width: 60%;
-  height: 60%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 4px;
-}
-
-.wifiBar {
-  width: 20%;
-  border-radius: var(--radius-sm);
-  animation: wifiPulse 1.5s infinite ease-in-out;
-  animation-play-state: running;
-}
-
-.wifiBar1 {
-  height: 30%;
-  background-color: var(--wifi-back-color);
-  animation-delay: 0s;
-}
-
-.wifiBar2 {
-  height: 60%;
-  background-color: var(--wifi-back-color);
-  animation-delay: 0.2s;
-}
-
-.wifiBar3 {
+  width: 100%;
   height: 100%;
-  background-color: var(--wifi-front-color);
-  animation-delay: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes wifiPulse {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scaleY(0.8);
+/* WiFi rings animation */
+.wifiRing1, .wifiRing2, .wifiRing3, .wifiRing4 {
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid var(--wifi-back-color);
+  transform: scale(0);
+  animation: wifiRipple 2s infinite;
+}
+
+.wifiRing1 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+  border-color: var(--wifi-back-color);
+  opacity: 0.6;
+}
+
+.wifiRing2 {
+  width: 75%;
+  height: 75%;
+  animation-delay: 0.2s;
+  border-color: var(--wifi-back-color);
+  opacity: 0.7;
+}
+
+.wifiRing3 {
+  width: 50%;
+  height: 50%;
+  animation-delay: 0.4s;
+  border-color: var(--wifi-front-color);
+  opacity: 0.8;
+}
+
+.wifiRing4 {
+  width: 25%;
+  height: 25%;
+  animation-delay: 0.6s;
+  border-color: var(--wifi-front-color);
+  opacity: 1;
+}
+
+.wifiDot {
+  position: absolute;
+  width: 10%;
+  height: 10%;
+  background-color: var(--wifi-front-color);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+@keyframes wifiRipple {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
   }
   50% {
-    opacity: 1;
-    transform: scaleY(1);
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
   }
 }
 
@@ -82,7 +110,7 @@
     width: var(--wifi-mobile-size, 100px);
     height: var(--wifi-mobile-size, 100px);
   }
-  
+
   .loaderText {
     font-size: var(--font-size-sm);
   }
