@@ -3,6 +3,7 @@ import QRFrame from "./QRFrame";
 import { isValidUrl } from "../../utils/qr-utils";
 import { APP_CONFIG } from "../../constants";
 import styles from "./QRGenerator.module.css";
+import "../../styles/animations.css"; // Import reusable animations
 
 const QRGenerator = () => {
   const [url, setUrl] = useState("");
@@ -38,7 +39,7 @@ const QRGenerator = () => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} card-lift`}>
       <h1>{APP_CONFIG.appName}</h1>
 
       <div className={styles.inputGroup}>
@@ -51,11 +52,12 @@ const QRGenerator = () => {
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             onKeyDown={handleKeyDown}
+            className="input-lift" // Apply reusable input animation
           />
           {url && (
-            <button 
-              type="button" 
-              className={styles.clearBtn}
+            <button
+              type="button"
+              className={`${styles.clearBtn} clear-btn-scale`}
               onClick={handleClear}
               aria-label="Clear input"
             >
@@ -66,7 +68,11 @@ const QRGenerator = () => {
         {error && <div className={styles.error}>{error}</div>}
       </div>
 
-      <button onClick={handleGenerate} disabled={!url.trim()}>
+      <button
+        onClick={handleGenerate}
+        disabled={!url.trim()}
+        className="button-lift" // Apply reusable button animation
+      >
         Generate QR Code
       </button>
 

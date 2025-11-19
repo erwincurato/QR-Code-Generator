@@ -1,0 +1,129 @@
+/* 
+ * Reusable Animation Classes
+ * Contains common hover animations that can be applied to any element
+ */
+
+/* Basic lift animation - lifts element up slightly on hover */
+.lift-animation {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lift-animation:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced lift animation - stronger lift effect */
+.lift-animation-enhanced {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.lift-animation-enhanced:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtle lift animation - gentle lift effect */
+.lift-animation-subtle {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.lift-animation-subtle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Scale animation - slightly enlarges element on hover */
+.scale-animation {
+  transition: all 0.3s ease;
+  transform: scale(1);
+}
+
+.scale-animation:hover {
+  transform: scale(1.02);
+}
+
+/* Scale animation with lift - combines scale and lift effects */
+.scale-lift-animation {
+  transition: all 0.3s ease;
+  transform: translateY(0) scale(1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.scale-lift-animation:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover-only effect for when you want to apply animation conditionally */
+.hover-effect {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+.hover-effect:hover {
+  transform: translateY(-2px);
+}
+
+/* Button-specific lift animation */
+.button-lift {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Input-specific subtle lift */
+.input-lift {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Card-like container animation */
+.card-lift {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* QR code specific animation */
+.qr-code-lift {
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Clear button scale animation */
+.clear-btn-scale {
+  transition: all 0.3s ease;
+}
+
+.clear-btn-scale:hover {
+  transform: scale(1.1);
+}

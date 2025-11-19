@@ -1,20 +1,24 @@
 import React from 'react';
 import styles from './Button.module.css';
+import '../../styles/animations.css'; // Import reusable animations
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
-  size = 'medium', 
-  disabled = false, 
+const Button = ({
+  children,
+  variant = 'primary',
+  size = 'medium',
+  disabled = false,
   onClick,
   type = 'button',
-  ...props 
+  className = '',
+  ...props
 }) => {
   const buttonClasses = [
     styles.button,
     styles[variant],
     styles[size],
-    disabled && styles.disabled
+    disabled && styles.disabled,
+    'button-lift', // Add reusable lift animation
+    className // Allow custom classes to be passed
   ].filter(Boolean).join(' ');
 
   return (

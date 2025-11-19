@@ -1,16 +1,18 @@
 import React from 'react';
 import styles from './InputField.module.css';
+import '../../styles/animations.css'; // Import reusable animations
 
-const InputField = ({ 
-  id, 
-  label, 
-  type = 'text', 
-  value, 
-  onChange, 
-  placeholder, 
+const InputField = ({
+  id,
+  label,
+  type = 'text',
+  value,
+  onChange,
+  placeholder,
   onKeyDown,
   error,
-  ...props 
+  className = '',
+  ...props
 }) => {
   return (
     <div className={styles.inputGroup}>
@@ -26,7 +28,7 @@ const InputField = ({
         onChange={onChange}
         placeholder={placeholder}
         onKeyDown={onKeyDown}
-        className={error ? styles.errorInput : ''}
+        className={`${error ? styles.errorInput : ''} input-lift ${className}`.trim()}
         {...props}
       />
       {error && <div className={styles.error}>{error}</div>}

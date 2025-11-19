@@ -3,6 +3,7 @@ import QRCode from "react-qr-code";
 import { useQRDownload } from "../../hooks/useQRDownload";
 import { APP_CONFIG } from "../../constants";
 import styles from "./QRFrame.module.css";
+import "../../styles/animations.css"; // Import reusable animations
 
 const QRFrame = ({ url }) => {
   const svgRef = useRef(null);
@@ -10,7 +11,7 @@ const QRFrame = ({ url }) => {
 
   if (!url) {
     return (
-      <div className={styles.qrFrame}>
+      <div className={`${styles.qrFrame} lift-animation`}>
         <div className={styles.framePlaceholder}>
           <p>Your QR code will appear here after generation</p>
         </div>
@@ -19,10 +20,10 @@ const QRFrame = ({ url }) => {
   }
 
   return (
-    <div className={`${styles.qrFrame} ${styles.filled}`}>
+    <div className={`${styles.qrFrame} ${styles.filled} lift-animation`}>
       <div className={styles.qrFrameContent}>
-        <div className={styles.qrCode}>
-          <QRCode value={url} ref={svgRef} size={QR_FRAME_DEFAULT_SIZE} />
+        <div className={`${styles.qrCode} qr-code-lift`}>
+          <QRCode value={url} ref={svgRef} size={APP_CONFIG.qrCodeSize} />
         </div>
 
         <div className={styles.qrActions}>
@@ -35,12 +36,13 @@ const QRFrame = ({ url }) => {
                 onChange={(e) => setFileName(e.target.value)}
                 placeholder="File Name"
                 maxLength={50}
+                className="input-lift" // Apply reusable input animation
               />
             </label>
           </div>
 
           <button
-            className={styles.downloadBtn}
+            className={`${styles.downloadBtn} button-lift`}
             onClick={downloadQR}
             disabled={!url}
           >

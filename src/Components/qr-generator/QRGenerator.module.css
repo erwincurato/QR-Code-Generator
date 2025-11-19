@@ -45,7 +45,6 @@ input[type="url"] {
   border: 1px solid #d4d4d4;
   border-radius: 8px;
   font-size: 1rem;
-  transition: border 0.3s ease;
   box-sizing: border-box;
 }
 
@@ -80,11 +79,6 @@ button {
   display: block;
   width: 100%;
   font-weight: 500;
-  transition: background-color 0.3s ease;
-}
-
-button:hover:not(:disabled) {
-  background-color: #423d77;
 }
 
 button:disabled {
@@ -116,16 +110,16 @@ button:disabled {
     padding: 0.5rem;
     box-sizing: border-box;
   }
-  
+
   input[type="url"], button {
     font-size: 0.95rem;
     padding: 10px 8px;
   }
-  
+
   h1 {
     font-size: 1.3rem;
   }
-  
+
   .clearBtn {
     right: 8px;
     font-size: 1.3rem;
