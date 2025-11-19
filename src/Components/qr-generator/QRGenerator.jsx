@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QRFrame from "./QRFrame";
-import { isValidUrl, normalizeUrl } from "../../utils/qr-utils";
+import { isValidUrl, normalizeUrl, isValidDomainOrPath } from "../../utils/qr-utils";
 import { APP_CONFIG } from "../../constants";
 import styles from "./QRGenerator.module.css";
 import "../../styles/animations.css"; // Import reusable animations

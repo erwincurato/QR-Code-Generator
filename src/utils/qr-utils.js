@@ -4,6 +4,10 @@
 
 import { APP_CONFIG, VALIDATION } from '../constants';
 
+// ============================================================================
+// QR CODE DOWNLOAD UTILITIES
+// ============================================================================
+
 /**
  * Converts an SVG element to a downloadable PNG image
  * @param {SVGElement} svgElement - The SVG element to convert
@@ -80,6 +84,10 @@ export const downloadQRCode = (svgElement, fileName = APP_CONFIG.defaultFileName
   });
 };
 
+// ============================================================================
+// URL VALIDATION UTILITIES
+// ============================================================================
+
 /**
  * Validates if a string is a valid URL with comprehensive checks
  * @param {string} string - The string to validate
@@ -104,15 +112,17 @@ export const isValidUrl = (string) => {
   }
 
   try {
-    // Check for common URL schemes
-    let fullUrl = string;
+    // Support various protocols that are valid
+    const validProtocols = ['http:', 'https:', 'ftp:', 'ftps:'];
+    const hasProtocol = validProtocols.some(protocol => string.startsWith(protocol));
 
     // If no protocol is provided, try adding 'https://' and test
-    if (!string.includes('://')) {
+    let fullUrl = string;
+    if (!hasProtocol) {
       // Make sure it looks like a valid domain before adding protocol
       if (string.startsWith('www.')) {
         fullUrl = `https://${string}`;
-      } else if (isValidDomain(string)) {
+      } else if (isValidDomainOrPath(string)) {
         fullUrl = `https://${string}`;
       } else {
         // If it doesn't look like a valid domain, it's likely invalid
@@ -125,6 +135,50 @@ export const isValidUrl = (string) => {
   } catch (_) {
     return false;
   }
+};
+
+/**
+ * Validates if a string looks like a valid domain or path
+ * @param {string} input - The input to validate
+ * @returns {boolean} - True if valid domain or path structure, false otherwise
+ */
+export const isValidDomainOrPath = (input) => {
+  if (!input || typeof input !== 'string') {
+    return false;
+  }
+
+  // For domains with paths like github.com/user/repo
+  // Split by first slash to separate domain from path
+  const [domainPart] = input.split('/');
+
+  // Basic domain validation using regex
+  const domainRegex = /^(?!:\/\/)([a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.)+[a-zA-Z]{2,}$/;
+
+  // For domain with path, we need to validate the domain part
+  if (domainPart.includes('.')) {
+    // Additional check: ensure it has at least one dot that's not at the beginning or end
+    if (!domainPart.includes('.') || domainPart.startsWith('.') || domainPart.endsWith('.')) {
+      return false;
+    }
+
+    // Check the domain part for valid format
+    const validDomain = domainRegex.test(domainPart);
+
+    // If domain is valid, allow path parts
+    if (validDomain) {
+      return true;
+    }
+  }
+
+  // If it's just a domain without path, use the original validation
+  if (!input.includes('/')) {
+    if (!input.includes('.') || input.startsWith('.') || input.endsWith('.')) {
+      return false;
+    }
+    return domainRegex.test(input);
+  }
+
+  return false;
 };
 
 /**
@@ -160,17 +214,21 @@ export const normalizeUrl = (string) => {
 
   // If the string doesn't have a protocol, add https://
   if (!string.startsWith('http://') && !string.startsWith('https://')) {
-    // Check if it starts with www or looks like a domain
+    // Check if it starts with www or looks like a domain (with optional path)
     const trimmedString = string.trim();
 
     if (trimmedString.startsWith('www.')) {
       return `https://${trimmedString}`;
-    } else if (isValidDomain(trimmedString)) {
+    } else if (isValidDomainOrPath(trimmedString)) {
       return `https://${trimmedString}`;
     }
   }
   return string;
 };
+
+// ============================================================================
+// FILE NAME UTILITIES
+// ============================================================================
 
 /**
  * Sanitizes a string to be used as a file name
