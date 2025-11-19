@@ -1,0 +1,156 @@
+.qrFrame {
+  margin: 30px auto;
+  border: 2px dashed #1B1551;
+  border-radius: 12px;
+  min-height: 260px;
+  width: 100%;
+  max-width: 700px;
+  background-color: #fcfcfc;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.framePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.framePlaceholder p {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.qrFrameContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+}
+
+.qrCode {
+  flex-shrink: 0;
+  margin-left: 40px;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.qrActions {
+  display: flex;
+  margin-right: 100px;
+  margin-bottom: auto;
+  margin-top: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.fileNameInput input {
+  width: 140px;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.downloadBtn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.downloadBtn:hover:not(:disabled) {
+  background-color: #219653;
+}
+
+.downloadBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .qrFrame {
+    width: 100%;
+    max-width: 98vw;
+    padding: 4px;
+    min-height: 180px;
+    margin: 10px auto;
+    box-sizing: border-box;
+  }
+
+  .framePlaceholder {
+    min-height: 120px;
+    height: 100%;
+  }
+
+  .framePlaceholder p {
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .qrFrameContent {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    width: 100%;
+  }
+  
+  .qrCode {
+    margin-left: 0;
+    margin-bottom: 12px;
+    width: 90vw;
+    max-width: 300px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .qrActions {
+    margin-right: 0;
+    margin-top: 0;
+    align-items: stretch;
+    width: 100%;
+  }
+  
+  .downloadBtn {
+    width: 200px;
+    padding: 12px 0;
+    font-size: 1rem;
+    box-sizing: border-box;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .fileNameInput {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .fileNameInput input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
