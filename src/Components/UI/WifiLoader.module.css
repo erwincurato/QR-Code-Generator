@@ -37,55 +37,45 @@
   width: 20%;
   border-radius: var(--radius-sm);
   background-color: var(--wifi-back-color);
-  animation: wifiDomino 1.8s infinite ease-in-out;
-  animation-play-state: running;
+  animation: wifiColorFlow 2.4s infinite ease-in-out;
+  transform: scaleY(1);
   min-height: 10px; /* Ensure visibility */
 }
 
 .wifiBar1 {
   height: 30%;
-  animation-delay: 0.3s;
+  animation-delay: 0s;
   opacity: 0.6;
 }
 
 .wifiBar2 {
   height: 60%;
-  animation-delay: 0.6s;
-  opacity: 0.8;
+  animation-delay: 0.8s; /* One-third of cycle */
+  opacity: 0.6;
 }
 
 .wifiBar3 {
   height: 100%;
-  animation-delay: 0.9s;
-  background-color: var(--wifi-front-color);
-  opacity: 1;
+  animation-delay: 1.6s; /* Two-thirds of cycle */
+  opacity: 0.6;
 }
 
-@keyframes wifiDomino {
-  0%, 100% {
+/* Single animation for all bars with staggered delays for flowing effect */
+@keyframes wifiColorFlow {
+  0%, 15% {
+    background-color: var(--wifi-back-color);
+    transform: scaleY(1);
     opacity: 0.6;
-    background-color: var(--wifi-back-color);
-    transform: scaleY(0.8);
   }
-  20% {
-    opacity: 0.7;
-    background-color: var(--wifi-back-color);
-    transform: scaleY(0.9);
-  }
-  40% {
-    opacity: 0.9;
+  16%, 35% {
     background-color: var(--wifi-front-color);
     transform: scaleY(1.1);
-  }
-  60% {
     opacity: 1;
-    background-color: var(--wifi-front-color);
-    transform: scaleY(1);
   }
-  80% {
-    opacity: 0.9;
-    background-color: var(--wifi-front-color);
-    transform: scaleY(1.05);
+  36%, 100% {
+    background-color: var(--wifi-back-color);
+    transform: scaleY(1);
+    opacity: 0.6;
   }
 }
 
