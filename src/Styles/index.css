@@ -37,7 +37,7 @@ input {
 /* Focus styles for accessibility */
 button:focus,
 input:focus {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
 }
 

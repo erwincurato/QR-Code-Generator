@@ -49,6 +49,16 @@ input[type="url"] {
   font-family: var(--font-family-primary);
 }
 
+input[type="url"]:hover {
+  border-color: var(--color-primary);
+}
+
+input[type="url"]:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: var(--input-focus-shadow);
+}
+
 .clearBtn {
   position: absolute;
   right: var(--spacing-md);

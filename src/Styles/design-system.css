@@ -114,8 +114,8 @@
   --input-border-radius: var(--radius-md);
   --input-border-width: 1px;
   --input-border-color: var(--color-border);
-  --input-focus-border-color: var(--color-border-focus);
-  --input-focus-shadow: var(--shadow-focus);
+  --input-focus-border-color: var(--color-primary);
+  --input-focus-shadow: 0 0 0 3px rgba(27, 21, 81, 0.1); /* Using primary color with transparency */
   
   --button-padding: var(--spacing-sm) var(--spacing-lg);
   --button-border-radius: var(--radius-md);
