@@ -1,5 +1,5 @@
 import React from "react";
-import QRGenerator from "../components/QRGenerator/QRGenerator";
+import QRGenerator from "../components/qr-generator/QRGenerator";
 
 //Main QR Code Generator page
 const HomePage = () => {
