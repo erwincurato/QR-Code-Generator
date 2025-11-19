@@ -30,6 +30,8 @@ const WifiLoader = ({
             <div className={styles.wifiRing2}></div>
             <div className={styles.wifiRing3}></div>
             <div className={styles.wifiRing4}></div>
+            <div className={styles.wifiRing5}></div>
+            <div className={styles.wifiRing6}></div>
             <div className={styles.wifiDot}></div>
           </div>
         </div>

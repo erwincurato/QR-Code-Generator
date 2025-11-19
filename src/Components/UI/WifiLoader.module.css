@@ -32,12 +32,12 @@
 }
 
 /* WiFi rings animation */
-.wifiRing1, .wifiRing2, .wifiRing3, .wifiRing4 {
+.wifiRing1, .wifiRing2, .wifiRing3, .wifiRing4, .wifiRing5, .wifiRing6 {
   position: absolute;
   border-radius: 50%;
   border: 3px solid var(--wifi-back-color);
   transform: scale(0);
-  animation: wifiRipple 2s infinite;
+  animation: wifiRipple 3s infinite; /* Increased from 2s to 3s */
 }
 
 .wifiRing1 {
@@ -45,31 +45,47 @@
   height: 100%;
   animation-delay: 0s;
   border-color: var(--wifi-back-color);
-  opacity: 0.6;
+  opacity: 0.3; /* More transparent for subtle start */
 }
 
 .wifiRing2 {
   width: 75%;
   height: 75%;
-  animation-delay: 0.2s;
+  animation-delay: 0.3s;
   border-color: var(--wifi-back-color);
-  opacity: 0.7;
+  opacity: 0.4;
 }
 
 .wifiRing3 {
   width: 50%;
   height: 50%;
-  animation-delay: 0.4s;
+  animation-delay: 0.6s;
   border-color: var(--wifi-front-color);
-  opacity: 0.8;
+  opacity: 0.6;
 }
 
 .wifiRing4 {
   width: 25%;
   height: 25%;
-  animation-delay: 0.6s;
+  animation-delay: 0.9s;
   border-color: var(--wifi-front-color);
-  opacity: 1;
+  opacity: 0.8;
+}
+
+.wifiRing5 {
+  width: 60%;
+  height: 60%;
+  animation-delay: 0.15s;
+  border-color: var(--wifi-back-color);
+  opacity: 0.5;
+}
+
+.wifiRing6 {
+  width: 40%;
+  height: 40%;
+  animation-delay: 0.45s;
+  border-color: var(--wifi-front-color);
+  opacity: 0.7;
 }
 
 .wifiDot {
@@ -83,16 +99,29 @@
 
 @keyframes wifiRipple {
   0% {
-    transform: scale(0);
-    opacity: 0.8;
+    transform: scale(0.1);
+    opacity: 1;
+    border-color: var(--wifi-front-color);
+  }
+  25% {
+    transform: scale(0.5);
+    opacity: 0.7;
+    border-color: var(--wifi-front-color);
   }
   50% {
-    transform: scale(1);
+    transform: scale(0.8);
     opacity: 0.4;
+    border-color: var(--wifi-back-color);
+  }
+  75% {
+    transform: scale(0.9);
+    opacity: 0.2;
+    border-color: var(--wifi-back-color);
   }
   100% {
     transform: scale(1);
     opacity: 0;
+    border-color: var(--wifi-back-color);
   }
 }
 
