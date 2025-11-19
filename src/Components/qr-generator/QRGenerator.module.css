@@ -47,15 +47,14 @@ input[type="url"] {
   font-size: var(--font-size-base);
   box-sizing: border-box;
   font-family: var(--font-family-primary);
-  background-color: var(--input-bg);
 }
 
 input[type="url"]:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
 }
 
 input[type="url"]:focus {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
   outline: none;
   box-shadow: var(--input-focus-shadow);
 }

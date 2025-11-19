@@ -61,15 +61,14 @@
   border-radius: var(--input-border-radius);
   font-size: var(--font-size-sm);
   font-family: var(--font-family-primary);
-  background-color: var(--input-bg);
 }
 
 .fileNameInput input:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
 }
 
 .fileNameInput input:focus {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
   outline: none;
   box-shadow: var(--input-focus-shadow);
 }
