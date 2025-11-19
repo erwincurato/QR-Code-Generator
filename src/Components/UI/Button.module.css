@@ -1,51 +1,50 @@
 .button {
   border: none;
-  border-radius: 8px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  font-weight: 500;
+  font-weight: var(--button-font-weight);
   display: inline-block;
   text-align: center;
+  font-family: var(--font-family-primary);
 }
 
 /* Variants */
 .primary {
-  background-color: #1B1551;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
 }
 
 .primary:hover:not(.disabled) {
-  background-color: #423d77;
+  background-color: var(--color-primary-dark);
 }
 
 .secondary {
-  background-color: #27ae60;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--color-text-white);
 }
 
 .secondary:hover:not(.disabled) {
-  background-color: #219653;
+  background-color: var(--color-secondary-dark);
 }
 
 /* Sizes */
 .small {
   padding: 8px 16px;
-  font-size: 14px;
+  font-size: var(--font-size-sm);
 }
 
 .medium {
   padding: 12px 25px;
-  font-size: 16px;
+  font-size: var(--font-size-base);
 }
 
 .large {
   padding: 16px 30px;
-  font-size: 18px;
+  font-size: var(--font-size-lg);
 }
 
 /* Disabled state */
 .disabled {
   opacity: 0.6;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

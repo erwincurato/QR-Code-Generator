@@ -1,12 +1,12 @@
 .qrFrame {
-  margin: 30px auto;
-  border: 2px dashed #1B1551;
-  border-radius: 12px;
+  margin: var(--spacing-lg) auto;
+  border: var(--qr-frame-border);
+  border-radius: var(--qr-frame-radius);
   min-height: 260px;
   width: 100%;
   max-width: 700px;
-  background-color: #fcfcfc;
-  padding: 20px;
+  background-color: var(--color-bg-secondary);
+  padding: var(--qr-frame-padding);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,9 +39,9 @@
   flex-shrink: 0;
   margin-left: 40px;
   padding: 10px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
 }
 
 .qrActions {
@@ -57,11 +57,10 @@
 .fileNameInput input {
   width: 140px;
   padding: 6px 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  transform: translateY(0);
+  border: var(--input-border-width) solid var(--color-border);
+  border-radius: var(--input-border-radius);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-family-primary);
 }
 
 .fileNameInput input:hover {
@@ -71,22 +70,14 @@
 }
 
 .downloadBtn {
-  background-color: #27ae60;
-  color: white;
+  background-color: var(--color-secondary);
+  color: var(--color-text-white);
   border: none;
   padding: 10px 16px;
-  border-radius: 6px;
+  border-radius: var(--button-border-radius);
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.downloadBtn:hover:not(:disabled) {
-  background-color: #219653;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: var(--button-font-weight);
+  font-family: var(--font-family-primary);
 }
 
 .downloadBtn:disabled {

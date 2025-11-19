@@ -1,15 +1,14 @@
 .inputGroup {
-  margin-bottom: 25px;
+  margin-bottom: var(--spacing-lg);
   width: 100%;
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 900;
-  color: #1B1551;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  font-family: var(--font-family-primary);
 }
 
 input {
@@ -17,27 +16,28 @@ input {
   max-width: 100%;
   margin: 0 auto;
   display: block;
-  padding: 12px 15px;
-  border: 1px solid #d4d4d4;
-  border-radius: 8px;
-  font-size: 1rem;
+  padding: var(--input-padding);
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: var(--font-size-base);
   box-sizing: border-box;
+  font-family: var(--font-family-primary);
 }
 
 input:focus {
-  border-color: #3498db;
+  border-color: var(--input-focus-border-color);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  box-shadow: var(--input-focus-shadow);
 }
 
 .errorInput {
-  border-color: #e74c3c;
+  border-color: var(--color-text-error);
 }
 
 .error {
-  color: #e74c3c;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 550;
-  font-size: 14px;
-  margin-top: 8px;
+  color: var(--color-text-error);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-sm);
 }

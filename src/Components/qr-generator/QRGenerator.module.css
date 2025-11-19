@@ -1,33 +1,33 @@
 .container {
-  max-width: 800px;
+  max-width: var(--container-max-width);
   width: 95%;
   margin: 40px auto;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+  padding: var(--container-padding);
+  background-color: var(--color-bg-primary);
+  border-radius: var(--container-border-radius);
+  box-shadow: var(--container-shadow);
 }
 
 h1 {
   text-align: center;
-  color: #1B1551;
-  margin-bottom: 30px;
-  font-weight: bold;
-  font-family: sans-serif;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-2xl);
 }
 
 .inputGroup {
-  margin-bottom: 25px;
+  margin-bottom: var(--spacing-lg);
   width: 100%;
 }
 
 label {
   display: block;
-  margin-bottom: 8px;
-  font-weight: 900;
-  color: #1B1551;
-  font-weight: 400;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  font-family: var(--font-family-primary);
 }
 
 .inputContainer {
@@ -42,20 +42,21 @@ input[type="url"] {
   margin: 0 auto;
   display: block;
   padding: 12px 40px 12px 15px;
-  border: 1px solid #d4d4d4;
-  border-radius: 8px;
-  font-size: 1rem;
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  font-size: var(--font-size-base);
   box-sizing: border-box;
+  font-family: var(--font-family-primary);
 }
 
 .clearBtn {
   position: absolute;
-  right: 10px;
+  right: var(--spacing-md);
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   cursor: pointer;
-  color: #999;
+  color: var(--color-text-secondary);
   padding: 0;
   width: 24px;
   height: 24px;
@@ -65,20 +66,21 @@ input[type="url"] {
 }
 
 .clearBtn:hover {
-  color: #666;
+  color: var(--color-text-primary);
 }
 
 button {
-  background-color: #1B1551;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-text-white);
   border: none;
-  padding: 12px 25px;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: var(--button-padding);
+  font-size: var(--font-size-base);
+  border-radius: var(--button-border-radius);
   cursor: pointer;
   display: block;
   width: 100%;
-  font-weight: 500;
+  font-weight: var(--button-font-weight);
+  font-family: var(--font-family-primary);
 }
 
 button:disabled {
@@ -87,19 +89,19 @@ button:disabled {
 }
 
 .instructions {
-  margin-top: 24px;
-  color: #1B1551;
-  font-size: 15px;
+  margin-top: var(--spacing-lg);
+  color: var(--color-primary);
+  font-size: var(--font-size-base);
   text-align: center;
-  font-family: 'Lucida Sans';
+  font-family: var(--font-family-primary);
 }
 
 .error {
-  color: #e74c3c;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 550;
-  font-size: 14px;
-  margin-top: 8px;
+  color: var(--color-text-error);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  margin-top: var(--spacing-sm);
 }
 
 /*media queries for small screens*/
@@ -107,21 +109,21 @@ button:disabled {
   .container {
     width: 100%;
     max-width: 98vw;
-    padding: 0.5rem;
+    padding: var(--spacing-sm);
     box-sizing: border-box;
   }
 
   input[type="url"], button {
-    font-size: 0.95rem;
-    padding: 10px 8px;
+    font-size: calc(var(--font-size-base) * 0.95);
+    padding: 10px var(--spacing-sm);
   }
 
   h1 {
-    font-size: 1.3rem;
+    font-size: calc(var(--font-size-2xl) * 0.65);
   }
 
   .clearBtn {
-    right: 8px;
-    font-size: 1.3rem;
+    right: var(--spacing-sm);
+    font-size: calc(var(--font-size-xl) * 0.87);
   }
 }
