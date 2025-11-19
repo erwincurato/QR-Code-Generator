@@ -26,13 +26,9 @@ const WifiLoader = ({
           }}
         >
           <div className={styles.wifiIcon}>
-            <div className={styles.wifiRing1}></div>
-            <div className={styles.wifiRing2}></div>
-            <div className={styles.wifiRing3}></div>
-            <div className={styles.wifiRing4}></div>
-            <div className={styles.wifiRing5}></div>
-            <div className={styles.wifiRing6}></div>
-            <div className={styles.wifiDot}></div>
+            <div className={`${styles.wifiBar} ${styles.wifiBar1}`}></div>
+            <div className={`${styles.wifiBar} ${styles.wifiBar2}`}></div>
+            <div className={`${styles.wifiBar} ${styles.wifiBar3}`}></div>
           </div>
         </div>
         {text && <p className={styles.loaderText}>{text}</p>}
