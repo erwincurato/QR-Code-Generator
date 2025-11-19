@@ -114,6 +114,20 @@ button:disabled {
   margin-top: var(--spacing-sm);
 }
 
+.qrLoadingPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+  margin: 30px auto;
+  border: 2px dashed var(--color-primary);
+  border-radius: var(--qr-frame-radius);
+  width: 100%;
+  max-width: 700px;
+  background-color: var(--color-bg-secondary);
+  padding: var(--qr-frame-padding);
+}
+
 /*media queries for small screens*/
 @media (max-width: 600px) {
   .container {

@@ -1,0 +1,89 @@
+.wifiLoaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--spacing-lg);
+}
+
+.wifiLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.wifiSignal {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: var(--wifi-size, 150px);
+  height: var(--wifi-size, 150px);
+}
+
+.wifiIcon {
+  position: relative;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+}
+
+.wifiBar {
+  width: 20%;
+  border-radius: var(--radius-sm);
+  animation: wifiPulse 1.5s infinite ease-in-out;
+  animation-play-state: running;
+}
+
+.wifiBar1 {
+  height: 30%;
+  background-color: var(--wifi-back-color);
+  animation-delay: 0s;
+}
+
+.wifiBar2 {
+  height: 60%;
+  background-color: var(--wifi-back-color);
+  animation-delay: 0.2s;
+}
+
+.wifiBar3 {
+  height: 100%;
+  background-color: var(--wifi-front-color);
+  animation-delay: 0.4s;
+}
+
+@keyframes wifiPulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scaleY(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.loaderText {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-primary);
+  text-align: center;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  .wifiSignal {
+    width: var(--wifi-mobile-size, 100px);
+    height: var(--wifi-mobile-size, 100px);
+  }
+  
+  .loaderText {
+    font-size: var(--font-size-sm);
+  }
+}

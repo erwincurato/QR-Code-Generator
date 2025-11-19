@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QRFrame from "./QRFrame";
+import WifiLoader from "../ui/WifiLoader";
 import { isValidUrl, normalizeUrl, isValidDomainOrPath } from "../../utils/qr-utils";
 import { APP_CONFIG } from "../../constants";
 import styles from "./QRGenerator.module.css";
@@ -9,6 +10,7 @@ const QRGenerator = () => {
   const [url, setUrl] = useState("");
   const [qrUrl, setQrUrl] = useState("");
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGenerate = () => {
     if (!url.trim()) {
@@ -17,14 +19,23 @@ const QRGenerator = () => {
       return;
     }
 
-    if (isValidUrl(url)) {
-      setError("");
-      // Normalize the URL to ensure proper protocol
-      setQrUrl(normalizeUrl(url));
-    } else {
-      setError("Please enter a valid URL");
-      setQrUrl("");
-    }
+    // Show loading state
+    setIsLoading(true);
+    setError("");
+
+    // Simulate a small delay for better UX and to show the loading animation
+    setTimeout(() => {
+      if (isValidUrl(url)) {
+        setError("");
+        // Normalize the URL to ensure proper protocol
+        setQrUrl(normalizeUrl(url));
+      } else {
+        setError("Please enter a valid URL");
+        setQrUrl("");
+      }
+      // Hide loading state
+      setIsLoading(false);
+    }, 500); // Small delay to ensure loading spinner is visible
   };
 
   const handleKeyDown = (e) => {
@@ -54,13 +65,15 @@ const QRGenerator = () => {
             onChange={(e) => setUrl(e.target.value)}
             onKeyDown={handleKeyDown}
             className="input-lift" // Apply reusable input animation
+            disabled={isLoading}
           />
-          {url && (
+          {url && !isLoading && (
             <button
               type="button"
               className={`${styles.clearBtn} clear-btn-scale`}
               onClick={handleClear}
               aria-label="Clear input"
+              disabled={isLoading}
             >
               ×
             </button>
@@ -71,13 +84,25 @@ const QRGenerator = () => {
 
       <button
         onClick={handleGenerate}
-        disabled={!url.trim()}
+        disabled={!url.trim() || isLoading}
         className="button-lift" // Apply reusable button animation
       >
-        Generate QR Code
+        {isLoading ? "Generating..." : "Generate QR Code"}
       </button>
 
-      <QRFrame url={qrUrl} />
+      {isLoading ? (
+        <div className={styles.qrLoadingPlaceholder}>
+          <WifiLoader
+            text="Generating your QR code..."
+            backColor="#E8F2FC"
+            frontColor="#4645F6"
+            desktopSize="120px"
+            mobileSize="100px"
+          />
+        </div>
+      ) : (
+        <QRFrame url={qrUrl} />
+      )}
 
       <div className={styles.instructions}>
         <p>Enter any URL to generate a QR code. Your data is processed locally - nothing is sent to our servers.</p>
