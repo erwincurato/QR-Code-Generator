@@ -64,11 +64,11 @@
 }
 
 .fileNameInput input:hover {
-  border-color: var(--color-primary-dark);
+  border-color: var(--color-primary);
 }
 
 .fileNameInput input:focus {
-  border-color: var(--color-primary-dark);
+  border-color: var(--color-primary);
   outline: none;
   box-shadow: var(--input-focus-shadow);
 }

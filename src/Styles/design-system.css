@@ -113,7 +113,7 @@
   --input-padding: var(--spacing-sm) var(--spacing-md);
   --input-border-radius: var(--radius-md);
   --input-border-width: 1px;
-  --input-border-color: var(--color-primary);
+  --input-border-color: var(--color-primary-dark);
   --input-focus-border-color: var(--color-primary);
   --input-focus-shadow: var(--shadow-focus);
   
