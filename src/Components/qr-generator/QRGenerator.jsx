@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import QRFrame from "./QRFrame";
-import WifiLoader from "../ui/WifiLoader";
+import Loading from "../ui/Loading";
 import { isValidUrl, normalizeUrl, isValidDomainOrPath } from "../../utils/qr-utils";
 import { APP_CONFIG } from "../../constants";
 import styles from "./QRGenerator.module.css";
-import "../../styles/animations.css"; // Import reusable animations
+import "../../styles/animations.css"; 
 
 const QRGenerator = () => {
   const [url, setUrl] = useState("");
@@ -92,13 +92,7 @@ const QRGenerator = () => {
 
       {isLoading ? (
         <div className={styles.qrLoadingPlaceholder}>
-          <WifiLoader
-            text="Generating your QR code..."
-            backColor="#E8F2FC"
-            frontColor="#4645F6"
-            desktopSize="120px"
-            mobileSize="100px"
-          />
+          <Loading text="Generating your QR code..." />
         </div>
       ) : (
         <QRFrame url={qrUrl} />
