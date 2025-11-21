@@ -1,0 +1,64 @@
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.barLoader {
+  display: flex;
+  gap: var(--bar-gap, 4px);
+  align-items: end;
+  height: var(--bar-loader-height, 30px);
+}
+
+.bar {
+  background-color: transparent;
+  border-radius: 2px;
+  animation: barLoading 5s infinite ease-in-out;
+  width: var(--bar-width, 6px);
+ --loading-color: var(--color-primary, #1B1551);
+}
+
+.bar:nth-child(1) {
+  height: var(--bar1-height);
+  animation-delay: -0.5s;
+}
+
+.bar:nth-child(2) {
+  height: var(--bar2-height);
+  animation-delay: -0.3s;
+}
+
+.bar:nth-child(3) {
+  height: var(--bar3-height);
+  animation-delay: -0.1s;
+}
+
+/* Size adjustment variables - now using large size as default */
+.loadingContainer {
+  --bar-width: 12px;
+  --bar1-height: 20px;
+  --bar2-height: 35px;
+  --bar3-height: 50px;
+  --bar-gap: 6px;
+  --bar-loader-height: 45px;
+}
+
+.loadingText {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+@keyframes barLoading {
+  0%, 50%, 100% {
+    background-color: transparent;
+    opacity: 0.4;
+  }
+  20% {
+    background-color: var(--loading-color);
+    opacity: 1;
+  }
+}
