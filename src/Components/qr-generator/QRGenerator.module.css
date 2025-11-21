@@ -119,13 +119,13 @@ button:disabled {
   align-items: center;
   justify-content: center;
   min-height: 260px;
-  margin: 30px auto;
-  border: 2px dashed var(--color-primary);
-  border-radius: var(--qr-frame-radius);
+  margin: var(--spacing-lg) auto;  /* Match QRFrame margin */
+  border: var(--qr-frame-border);  /* Match QRFrame border */
+  border-radius: var(--qr-frame-radius);  /* Match QRFrame border radius */
   width: 100%;
-  max-width: 700px;
+  max-width: 700px;  /* Match QRFrame max-width */
   background-color: var(--color-bg-secondary);
-  padding: var(--qr-frame-padding);
+  padding: var(--qr-frame-padding);  /* Match QRFrame padding */
 }
 
 /*media queries for small screens*/
@@ -135,6 +135,12 @@ button:disabled {
     max-width: 98vw;
     padding: var(--spacing-sm);
     box-sizing: border-box;
+  }
+
+  .qrLoadingPlaceholder {
+    width: 100%;
+    max-width: 98vw;
+    min-width: 300px; /* Ensure minimum width on very small screens */
   }
 
   input[type="url"], button {
